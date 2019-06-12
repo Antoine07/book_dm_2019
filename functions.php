@@ -2,11 +2,34 @@
 
 // Faire une fonction qui gère les classes dans le body html des pages
 
-function al_get_class_body(){
-    if(is_home()) echo 'home';
-    elseif(is_category(2)) echo 'devfront';
-    elseif(is_category(3)) echo 'devback';
-    elseif(is_category())  echo 'category';
-    elseif(is_single())    echo 'single';
-    else echo 'default';
+function al_get_class_body($className = null){
+    $classes = ['default'];
+
+    // si ce n'est pas null => on veut ajouter des classes depuis les paramètres
+    // de la fonction
+    if( is_null($className) === false ) { 
+        // si c'est un tableau je rassemble toutes les classes avec
+        // $classes => merge
+        // et sinon c'est une chaîne de caractères => push dans $classes
+        if( is_array($className) === true )
+            $classes = array_merge( $classes, $className) ;
+        else
+            $classes[] = $className;
+    }
+
+    if(is_home()) 
+        $classes[] = 'home';
+
+    elseif(is_category(2)) 
+        $classes[] =  'devfront';
+        
+    elseif(is_category(3)) 
+        $classes[] =  'devback';
+        
+    elseif(is_category())  
+        $classes[] =  'category';
+        
+    else $classes[] =  'single';
+    
+    return join(' ', $classes);
 }

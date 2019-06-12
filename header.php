@@ -12,7 +12,7 @@
     wp_head() ?>
     
 </head>
-<body class="<?php al_get_class_body() ;?>">
+<body class="<?php echo al_get_class_body(['super', 'book', 'info']) ;?>">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
