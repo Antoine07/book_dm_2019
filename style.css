@@ -1,0 +1,28 @@
+/*   
+Theme Name: Book
+Theme URI: Homepage du thème
+Description: Une courte description
+Author: Tony
+Author URI: votre URL
+Version: 1.0.0
+.
+Theme Book pour apprendre WP
+.
+*/
+
+.home{
+    background-color: azure;
+}
+
+.single{
+    background-color: aqua;
+}
+
+.category{
+    background-color: beige;
+}
+
+.category-devfront{
+    background-color: pink;
+    color : black;
+}
