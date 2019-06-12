@@ -44,5 +44,9 @@ add_action('wp_enqueue_scripts',function(){
     // wp_enqueue_style ajouter la feuille de style style.css
     // et donc retier celle-ci dans le header
     // Techniquement la feuille de style passera par wp_head ou wp_footer
+    // le premier paramètre est le nom de la cle pour ce style attention à ne pas utiliser
+    // une deuxième fois cette cle cela ecrasera les precedents styles
+    wp_enqueue_style( 'book_style', get_stylesheet_uri());
+    
 
 });

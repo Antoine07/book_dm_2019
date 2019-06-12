@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Page d'accueil</title>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo("stylesheet_url"); ?>" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php bloginfo("stylesheet_url"); ?>" /> -->
     <?php 
     //hook permet d'injecter des scripts du noyau ou du thème perso
     wp_head() ?>
