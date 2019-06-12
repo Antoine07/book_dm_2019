@@ -33,3 +33,16 @@ function al_get_class_body($className = null){
     
     return join(' ', $classes);
 }
+
+// Hook pour ajouter des scripts
+
+// premier paramètre c'est le nom de la fonction
+// deuxième paramètre c'est la fonction de callback
+// exécutée pour ce HOOK : wp_enqueue_scripts
+add_action('wp_enqueue_scripts',function(){
+
+    // wp_enqueue_style ajouter la feuille de style style.css
+    // et donc retier celle-ci dans le header
+    // Techniquement la feuille de style passera par wp_head ou wp_footer
+
+});
