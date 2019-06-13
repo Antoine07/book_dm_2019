@@ -93,3 +93,17 @@ add_filter('excerpt_more', function($more){
         get_permalink($post->ID)
     );
 });
+
+
+// création d'un hook
+add_action('al_multiplication_hook', function($args){
+
+    if( is_array($args) === false ) return;
+
+    $result = 1;
+
+    foreach($args as $num) 
+        $result = $num * $result;
+
+    echo "<p>Multiplication : {$result}</p>";
+});
