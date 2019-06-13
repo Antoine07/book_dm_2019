@@ -18,17 +18,16 @@ function al_get_class_body($className = null){
     }
 
     if(is_home()) 
-        $classes[] = 'home';
-
+        $classes[] = 'HOME';
     elseif(is_category(2)) 
         $classes[] =  'devfront';
         
-    elseif(is_category(3)) 
-        $classes[] =  'devback';
-        
-    elseif(is_category())  
-        $classes[] =  'category';
-        
+        elseif(is_category(3)) 
+            $classes[] =  'devback';
+            
+        elseif(is_category())  
+            $classes[] =  'category';
+            
     else $classes[] =  'single';
     
     return join(' ', $classes);
@@ -48,5 +47,31 @@ add_action('wp_enqueue_scripts',function(){
     // une deuxième fois cette cle cela ecrasera les precedents styles
     wp_enqueue_style( 'book_style', get_stylesheet_uri());
     
+    if(is_category(4)){
 
+        wp_enqueue_style( 
+            'book_style_react_category', 
+            get_template_directory_uri() .'/assets/css/react.css' );
+
+    }
+
+    if( is_single() && has_category( 4 ) ){
+
+        // merci à Xavier pour charger une feuille de style en fonction d'un article se trouvant
+        // dans une catégorie particulière
+    }
 });
+
+// administrer dans l'application les items de menu
+// item c'est un lien vers une catégories, un post, etc.
+add_action('after_setup_theme', 'al_setup_theme');
+
+function al_setup_theme()
+{
+    register_nav_menus([
+        'main'    => 'Mon menu principal',
+        'footer'  => 'Mon menu footer',
+        'sidebar' => 'Menu dans la sidebar'
+    ]);
+    
+}

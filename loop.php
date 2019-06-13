@@ -17,4 +17,4 @@
     <?php else :  ?>
         <p>Désolé pas d'article pour l'instant </p>
     <?php endif; ?>
-</div>
+</div><!-- .contanier-post -->
