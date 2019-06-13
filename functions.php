@@ -75,3 +75,21 @@ function al_setup_theme()
     ]);
     
 }
+
+// Hook qui agit uniquement sur l'extrait d'un post
+add_filter('the_excerpt', function($excerpt){
+    
+    return "$excerpt <p>j'aime les 🍕 </p>";
+});
+
+// hook sur les ... de l'extrait <=> $more
+add_filter('excerpt_more', function($more){
+     // Permet l'accès au $post dans la boucle dans le scope de cette fonction
+     // On en a besoin pour récupérer l'identifiant du post
+    global $post;
+
+    return sprintf(
+        '<p><a class="btn btn-primary" href="%s">Lire la suite...</a></p>', 
+        get_permalink($post->ID)
+    );
+});
